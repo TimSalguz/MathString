@@ -1,24 +1,40 @@
 #pragma once
 #include <iostream>
 
-class var {
+class drobvar {
+public:
+    intvar number, numerator, denumenator;
+
+    drobvar();
+
+    ~drobvar();
+
+    drobvar(const drobvar &B);
+
+    drobvar operator=(intvar A);
+};
+
+
+class intvar {
 public:
     char *m_string = new char[0];
     int m_size;
 
-    var();                                       //КОНСТРУКТОР
+    intvar();                                       //КОНСТРУКТОР
 
-    ~var();                                      //ДЕСТРУКТОР
+    ~intvar();                                      //ДЕСТРУКТОР
 
-    var(const var &B);                           //КОНСТРУКТОР КОПИРОВАНИЯ
+    intvar(const intvar &B);                           //КОНСТРУКТОР КОПИРОВАНИЯ
 
-    var(const char a[]);                         //КОНСТРУКТОР КОПИРОВАНИЯ ДРУГОЙ
+    intvar(const char a[]);                         //КОНСТРУКТОР КОПИРОВАНИЯ ДРУГОЙ
 
-    var operator=(const char a[]);               //ПРИСВАИВАНИЕ СТРОКИ
+    intvar operator=(const char a[]);               //ПРИСВАИВАНИЕ СТРОКИ
 
-    var operator+(var& b);                       //ОПЕРАТОР СЛОЖЕНИЯ
+    intvar operator+(intvar& b);                       //ОПЕРАТОР СЛОЖЕНИЯ
 
-    void combineStrings(var& b);                 //ОБЪЕДИНЕНИЕ СТРОК
+    void intSum(intvar& a, intvar& b);
+
+    void combineStrings(intvar& a, intvar& b);         //ОБЪЕДИНЕНИЕ СТРОК
 
     void print();                                //ПЕЧАТЬ СТРОКИ
 
@@ -26,11 +42,21 @@ public:
 
 private:
 
+    void add1toBegin(int whatAdd);
+
     int searchPoint();                           //ВЫДАЕТ ПОЛОЖЕНИЕ ТОЧКИ В СТРОКЕ
 
-    void expandStringBy(int howMuchExpand);      //УВЕЛИЧИВАЕТ СТРОКУ
+    void expandStringBy(int howMuchExpand);      //УВЕЛИЧИВАЕТ РАЗМЕР СТРОКИ
 
-    bool IsDigit(int symbolNumber);              //ЦИФРА ЛИ
+    bool isDigit(int symbolNumber);              //ЦИФРА ЛИ
 
-    bool IsNumber();                             //ЧИСЛО ЛИ
+    bool isNumber();                             //ЧИСЛО ЛИ
+
+    bool isFractional();                         //ДРОБНОЕ ЛИ
+    
+    bool isComplex();                            //КОМПЛЕКСНОЕ ЛИ
+
+    void formatNumberStrings(intvar& b);
+
+    bool beginIsFormated(intvar& b);
 };

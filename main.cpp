@@ -5,9 +5,9 @@
 #define MY_DEBUG
 
 int main() {
-    var a;
-    a = "proverka";
-    var b = " raboty stringa";
+    intvar a;
+    a = "99999999345";
+    intvar b = "9999345";
     auto c = a+b;
     c.print();
 }
